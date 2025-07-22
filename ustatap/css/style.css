@@ -1,0 +1,470 @@
+:root {
+    --primary-color: #007bff; /* Mavi */
+    --primary-dark-color: #0056b3; /* Tünd Mavi */
+    --secondary-color: #6c757d; /* Boz */
+    --success-color: #28a745; /* Yaşıl */
+    --danger-color: #dc3545; /* Qırmızı */
+    --warning-color: #ffc107; /* Sarı */
+    --light-bg: #f8f9fa; /* Açıq Boz Arxa Fon */
+    --dark-bg: #343a40; /* Tünd Boz Arxa Fon */
+    --card-bg: #ffffff; /* Kart Arxa Fonu */
+    --text-dark: #212529; /* Tünd Mətn */
+    --text-muted: #6c757d; /* Zəif Mətn */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 70px; /* Navbar hündürlüyü qədər boşluq */
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+}
+
+/* Custom Navbar Styles */
+.bg-dark-custom {
+    background-color: var(--dark-bg) !important;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #fff !important;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #fff !important;
+}
+
+.cart-icon-container {
+    font-size: 1.3rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1542362543-529a67e5812a?q=80&w=1900&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    border-radius: 0 0 50px 50px; /* Alt kənarları yumşaq */
+    overflow: hidden; /* Border radius üçün */
+}
+
+.hero-section h1 {
+    font-size: 3.2rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero-section p.lead {
+    font-size: 1.4rem;
+    opacity: 0.9;
+}
+
+.search-bar-lg .form-control,
+.search-bar-lg .btn {
+    height: 55px;
+    font-size: 1.2rem;
+}
+
+.search-bar-lg .form-control {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.search-bar-lg .btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.search-bar-lg .btn:hover {
+    background-color: var(--primary-dark-color);
+    border-color: var(--primary-dark-color);
+}
+
+/* Filter Buttons Section */
+.filter-section-custom {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+}
+
+.filter-buttons-custom .btn {
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+.filter-buttons-custom .btn.active,
+.filter-buttons-custom .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Card Grid Layout (Ustalar and Ehtiyat Hisseleri) */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding-bottom: 20px;
+}
+
+.card-item-custom {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--card-bg);
+}
+
+.card-item-custom:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.card-img-custom {
+    width: 100%;
+    height: 200px; /* Bütün şəkillərin eyni hündürlüyü */
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-body-custom {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title-custom {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.btn-view-profile {
+    width: 100%;
+    margin-top: 15px;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-view-profile:hover {
+    background-color: var(--primary-dark-color);
+    border-color: var(--primary-dark-color);
+}
+
+/* VIP badge */
+.vip-card {
+    border: 3px solid var(--warning-color); /* Sarı sərhəd */
+    position: relative;
+}
+
+.vip-badge-custom {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--warning-color);
+    color: var(--dark-bg);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Hidden section üçün stil */
+.hidden-section {
+    display: none !important;
+}
+
+/* Profil və Detay Səhifələri */
+.profile-detail-img-custom, .part-detail-img-custom {
+    width: 100%;
+    height: 100%; /* Yüksəkliyi də öz valideyninə görə tənzimləsin */
+    max-height: 500px; /* Maksimum hündürlük */
+    object-fit: cover; /* Şəkilin dolması */
+    border-radius: 15px 0 0 15px; /* Sadəcə soldan yumşaq kənarlar */
+}
+
+.part-detail-img-custom {
+    object-fit: contain; /* Ehtiyat hissələri üçün daha yaxşı ola bilər */
+    padding: 20px; /* İçəridə boşluq */
+}
+
+/* Custom button styles for detail pages */
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-primary-custom:hover {
+    background-color: var(--primary-dark-color);
+    border-color: var(--primary-dark-color);
+}
+.btn-success-custom {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-success-custom:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-back {
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.btn-back:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+
+/* Səbət səhifəsi stilləri */
+.cart-item-list {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.cart-item-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--light-bg);
+}
+
+.cart-item-custom:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.cart-item-details {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.cart-item-price-quantity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+
+.item-quantity-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.item-quantity-controls button {
+    background-color: var(--light-bg);
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.item-quantity-controls button:hover {
+    background-color: #e9ecef;
+}
+
+.item-quantity-controls span {
+    padding: 5px 10px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.cart-item-total-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.2s;
+}
+
+.remove-item-btn:hover {
+    color: #c82333;
+    transform: scale(1.1);
+}
+
+.total-amount {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--success-color);
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px 18px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--primary-dark-color);
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer .social-icons a {
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+.footer .social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in.delay-1 { animation-delay: 0.2s; }
+.animate-fade-in.delay-2 { animation-delay: 0.4s; }
+.animate-fade-in.delay-3 { animation-delay: 0.6s; }
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .profile-detail-img-custom, .part-detail-img-custom {
+        border-radius: 15px 15px 0 0;
+        max-height: 300px; /* Tablet görünüşü üçün */
+    }
+    .card.shadow-lg .row.g-0 > div {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+    .hero-section {
+        min-height: 350px;
+    }
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .hero-section p.lead {
+        font-size: 1.1rem;
+    }
+    .search-bar-lg .form-control,
+    .search-bar-lg .btn {
+        height: 45px;
+        font-size: 1rem;
+    }
+    .filter-buttons-custom {
+        justify-content: flex-start !important;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+    }
+    .filter-buttons-custom .btn {
+        flex-shrink: 0;
+    }
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile-detail-img-custom, .part-detail-img-custom {
+        border-radius: 15px 15px 0 0;
+    }
+    .cart-item-custom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .cart-item-info {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .cart-item-price-quantity {
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 0;
+    }
+    .remove-item-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}

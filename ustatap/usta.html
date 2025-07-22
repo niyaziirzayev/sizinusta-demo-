@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usta Profili | Usta.az</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .master-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .master-header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .master-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid #FF6B00;
+        }
+        .master-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        .error-message {
+            text-align: center;
+            padding: 50px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Usta.az</div>
+        <nav>
+            <a href="index.html">Ana Səhifə</a>
+        </nav>
+    </header>
+
+    <main class="master-container">
+        <div id="masterDetail">
+            <div class="loading">Yüklənir...</div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('masterDetail');
+            
+            // 1. Əvvəlcə LocalStorage-dan yoxla
+            const master = JSON.parse(localStorage.getItem('selectedMaster'));
+            
+            // 2. Əgər yoxdursa, URL-dən ID-ni al
+            const urlParams = new URLSearchParams(window.location.search);
+            const masterId = urlParams.get('id');
+            
+            if (master) {
+                showMasterDetails(master);
+            } else if (masterId) {
+                // 3. Əgər ID varsa, bütün ustalar içində axtar
+                const allMasters = JSON.parse(localStorage.getItem('mastersData')) || [];
+                const foundMaster = allMasters.find(m => m.id == masterId);
+                
+                if (foundMaster) {
+                    showMasterDetails(foundMaster);
+                } else {
+                    showError("Usta tapılmadı!");
+                }
+            } else {
+                showError("Keçərsiz usta ID-si!");
+            }
+
+            function showMasterDetails(master) {
+                container.innerHTML = `
+                    <div class="master-header">
+                        <img src="${master.image}" 
+                             alt="${master.name}" 
+                             class="master-photo"
+                             onerror="this.src='images/default-avatar.jpg'">
+                        <div class="master-info">
+                            <h1 style="color: #FF6B00;">${master.name}</h1>
+                            <p><strong>Peşə:</strong> ${master.profession}</p>
+                            <p><strong>Qiymət:</strong> ${master.price}</p>
+                            ${master.address ? `<p><strong>Ünvan:</strong> ${master.address}</p>` : ''}
+                            
+                            <div style="margin-top: 20px;">
+                                <a href="tel:${master.phone}" 
+                                   style="background: #FF6B00; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none;">
+                                    📞 Zəng et
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    ${master.description ? `
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <h2>Haqqında</h2>
+                        <p>${master.description}</p>
+                    </div>` : ''}
+                    
+                    ${master.services ? `
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h2>Xidmətlər</h2>
+                        <ul>
+                            ${master.services.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </div>` : ''}
+                `;
+            }
+
+            function showError(message) {
+                container.innerHTML = `
+                    <div class="error-message">
+                        <h2>${message}</h2>
+                        <p><a href="index.html" style="color: #FF6B00;">Əsas səhifəyə qayıt</a></p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
